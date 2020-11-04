@@ -175,10 +175,10 @@ RSpec.describe K2ProcessWebhook do
                                                   type:"Customer Created",
                                                   resource:
                                                     {
-                                                      phone_number: "+254999999999",
                                                       last_name: "Mwangi",
                                                       first_name: "David",
-                                                      middle_name: "Kariuki"
+                                                      middle_name: "Kariuki",
+                                                      phone_number: "+254999999999"
                                                     }
                                                 },
                                               _links:

@@ -5,99 +5,97 @@ RSpec.describe K2ProcessResult do
         type:"incoming_payment",
         attributes:
             {
-                initiation_time:"2020-02-03T07:50:11.417+03:00",
-                status:"Received",
-                event:
-                    {
-                        type:"Buygoods Transaction",
-                        resource:
-                            {
-                                transaction_reference:"1580705411",
-                                origination_time:"2020-02-03T07:50:11.732+03:00",
-                                sender_msisdn:"+254716230902",
-                                amount:"20000.0",
-                                currency:"KES",
-                                till_identifier:"444555",
-                                system:"Lipa Na MPESA",
-                                status:"Received",
-                                sender_first_name:"David",
-                                sender_last_name:"Mwangi"
-
-                            },
-                        errors:[]
-                    },
-                meta_data:
-                    {
-                        notes:"Payment for invoice 12345",
-                        reference:"123456",
-                        customer_id:"123456789"
-                    },
-                _links:
-                    {
-                        callback_url:"https://webhook.site/437a5819-1a9d-4e96-b403-a6f898e5bed3",
-                        self:"http://localhost:3000/api/v1/payments/678ea9f2-0958-4c57-beed-1417394fce45"
-                    }
+              initiation_time:"2020-02-03T07:50:11.417+03:00",
+              status:"Success",
+              event:
+              {
+                type:"Incoming Payment Request",
+                resource:
+                {
+                  id: "52f86f-f2aa-4d70-baa2-ccfe4b78f4fc",
+                  reference:"1580705411",
+                  origination_time:"2020-02-03T07:50:11.732+03:00",
+                  sender_phone_number:"+254716230902",
+                  amount:"200.0",
+                  currency:"KES",
+                  till_number:"444555",
+                  system:"Lipa Na MPESA",
+                  status:"Received",
+                  sender_first_name:"John",
+                  sender_last_name:"Kamau",
+                  sender_middle_name:"Mwangi"
+                },
+                errors:[]
+              },
+              meta_data:
+              {
+                notes:"Payment for invoice 12345",
+                reference:"123456",
+                customer_id:"123456789"
+              },
+              _links:
+              {
+                callback_url:"https://webhook.site/437a5819-1a9d-4e96-b403-a6f898e5bed3",
+                self:"http://localhost:3000/api/v1/payments/678ea9f2-0958-4c57-beed-1417394fce45"
+              }
             }
     })
 
     @pay = HashWithIndifferentAccess.new(data: {
-        id:"59f350e0-7695-422f-9f52-c25b9cb05180",
-        type:"payment",
-        attributes:
-            {
-                transaction_reference:"1580706111",
-                destination:"c7f300c0-f1ef-4151-9bbe-005005aa3747",
-                status:"Sent",
-                origination_time:"2020-02-03T08:01:51.481+03:00",
-                initiation_time:"2020-02-03T08:01:51.433+03:00",
-                amount:
-                    {
-                        currency:"KES",
-                        value:"20000.0"
-
-                    },
-                meta_data:
-                    {
-                        notes:"Salary payment for May 2018",
-                        customerId:"8675309",
-                        something_else:"Something else"
-
-                    },
-                _links:
-                    {
-                        callback_url:"https://webhook.site/437a5819-1a9d-4e96-b403-a6f898e5bed3",
-                        self:"http://localhost:3000/api/v1/payments/59f350e0-7695-422f-9f52-c25b9cb05180"
-                    }
-            }
+      id:"59f350e0-7695-422f-9f52-c25b9cb05180",
+      type:"payment",
+      attributes:
+      {
+        transaction_reference:"1580706111",
+        destination:"c7f300c0-f1ef-4151-9bbe-005005aa3747",
+        status:"Sent",
+        origination_time:"2020-02-03T08:01:51.481+03:00",
+        initiation_time:"2020-02-03T08:01:51.433+03:00",
+        amount:
+        {
+          currency:"KES",
+          value:"20000.0"
+        },
+        meta_data:
+        {
+          notes:"Salary payment for May 2018",
+          customerId:"8675309",
+          something_else:"Something else"
+        },
+        _links:
+        {
+          callback_url:"https://webhook.site/437a5819-1a9d-4e96-b403-a6f898e5bed3",
+          self:"http://localhost:3000/api/v1/payments/59f350e0-7695-422f-9f52-c25b9cb05180"
+        }
+      }
     })
 
     @transfer = HashWithIndifferentAccess.new(data: {
-        id:"7db9f7f7-4ef8-4df9-a6a9-d62db042fcc1",
-        type:"settlement_transfer",
-        attributes:
-            {
-                destination_type: "merchant_wallet",
-                destination_reference: "cbe4bcff-c453-49e1-a504-85b6845e4018",
-                status:"Transferred",
-                origination_time:"2020-02-03T08:01:51.481+03:00",
-                initiation_time:"2020-02-03T08:01:51.433+03:00",
-                amount:
-                    {
-                        currency:"KES",
-                        value:"20000.0"
-                    },
-                meta_data:
-                    {
-                        notes:"Salary payment for May 2018",
-                        customerId:"8675309",
-                        something_else:"Something else"
-                    },
-                _links:
-                    {
-                        callback_url:"https://webhook.site/437a5819-1a9d-4e96-b403-a6f898e5bed3",
-                        self:"http://localhost:3000/api/v1/payments/59f350e0-7695-422f-9f52-c25b9cb05180"
-                    }
-            }
+      id:"7db9f7f7-4ef8-4df9-a6a9-d62db042fcc1",
+      type:"settlement_transfer",
+      attributes:
+      {
+        destination_type: "merchant_wallet",
+        destination_reference: "cbe4bcff-c453-49e1-a504-85b6845e4018",
+        status:"Received",
+        origination_time:"2020-02-03T08:01:51.481+03:00",
+        amount:
+        {
+          currency:"KES",
+          value:"20000.0"
+        },
+        meta_data:
+        {
+          notes:"Salary payment for May 2018",
+          customerId:"8675309",
+          something_else:"Something else"
+        },
+        _links:
+        {
+          callback_url:"https://webhook.site/437a5819-1a9d-4e96-b403-a6f898e5bed3",
+          self:"http://localhost:3000/api/v1/payments/59f350e0-7695-422f-9f52-c25b9cb05180"
+        }
+      }
     })
   end
 
